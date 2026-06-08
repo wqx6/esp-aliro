@@ -1,0 +1,20 @@
+name: Push components to Espressif Component Service
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  upload_components:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Upload ESP Aliro components to Component Registry
+        uses: espressif/upload-components-ci-action@v1
+        with:
+          directories: >
+            components/esp_aliro;
+          namespace: "wqx6"
+          api_token: "N_nfF2zQyRjJZkPO8KUGQ0FdO7apkE85ZomXABjNVP96K5qy9ccoWLluboRLJrcx-qcL1LcAyfVhzFYN7TMUfQ"
+
